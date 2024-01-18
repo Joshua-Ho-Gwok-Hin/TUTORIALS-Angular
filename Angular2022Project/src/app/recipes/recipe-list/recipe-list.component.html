@@ -1,0 +1,13 @@
+<div class="row" style="border: solid 1px red; padding: 10px">
+  <div class="col-xs-12">
+    <button class="btn btn-success">New Recipe</button>
+  </div>
+</div>
+<div class="row " style="border: solid 1px red; padding: 10px">  <div class="col-xs 12">
+    <app-recipe-item 
+    *ngFor="let recipeElement of recipes"
+    [recipe]="recipeElement"
+    (recipeSelected)="onRecipeSelected(recipeElement)"
+    ></app-recipe-item>
+  </div>
+</div>

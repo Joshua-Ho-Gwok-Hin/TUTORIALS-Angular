@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="border p-3">
+        <h5 class="mb-3">Refine your search</h5>
+
+
+
+        <!-- <form class="input-group mb-3" (ngSubmit)="searchBook(searchString)"> -->
+        <form class="input-group mb-3">
+
+            <input [(ngModel)]="searchString" type="text" class="form-control"
+                placeholder="Search book by title, author" name="query" id="query">
+            <button class="btn btn-outline-primary" type="button" id="button-addon2"
+                (click)="searchBook(searchString)">Search</button>
+        </form>
+
+        <div class="mt-3">
+            <div class="d-inline p-2">Select Category:</div>
+
+            <div class="d-inline p-2" *ngFor="let c of categories" [class.selected]="c === selectedCategory"
+                (click)="onSelect(c)">{{c.name}}</div>
+        </div>
+        <!-- 
+        <div class="mt-3">
+            <div class="d-inline p-2">Sort results:</div>
+
+            <div class="d-inline p-2">Year</div>
+            <div class="d-inline p-2">Title</div>
+            <div class="d-inline p-2">Author</div>
+        </div> -->
+
+        <div class="container" *ngIf="c">
+            <h1>hello</h1>
+            <div *ngFor="let b of books">{{b.author}}</div>
+        </div>
+        <div class="row my-4">
+            <h3 class="mb-3">Books available for Sale</h3>
+            <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let book of books">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 postion-relative">
+                    <div class="col p-3 d-flex flex-column position-static">
+                        <img src="../../../assets/book.png" class="img-fluid" alt="Image" />
+                        <h5>{{ book.title }}</h5>
+                        <p class="pt-1"><i>by {{book.author}}</i></p>
+                        <p>
+                            {{ book.description.substring(0, 100)}}...
+                        </p>
+                        <p>Price = ${{book.sellingPrice}}</p>
+                        <!-- <a (click)="addToCart(book)">continue Reading...</a> -->
+                        <button (click)="getBookDetails(book)" class="col-12 btn btn-primary p-3">View details</button>
+
+
+                        <button class="col-12 btn btn-outline-success mt-3 p-3">Add to cart</button>
+                        <div class="container mt-3" *ngIf="isAdmin">
+                            <button class="col-6 btn btn-dark p-3" (click)="edit(book)">
+                                <!-- <button class="col-6 btn btn-primary" (click)="edit(book)"> -->
+                                Edit
+                            </button>
+                            <button class="col-6 btn btn-danger p-3" (click)="delete(book)">
+                                <!-- <button class="col-6 btn btn-danger" (click)="delete(book)"> -->
+                                Delete
+                            </button>
+                        </div>
+                        <hr class="mt-4">
+                        <p>Category:</p>
+                        <span class="border border-primary p-2 col-6" *ngFor="let category of book.bookCategories">
+                            {{category.name}}
+                        </span>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

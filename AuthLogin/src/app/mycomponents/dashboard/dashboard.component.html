@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <p class="px-2">
+        <span>Hi {{name}}, welcome back! </span>
+        <span *ngIf="isAdmin">(Admin account)</span>
+        <span class="float-end pe-1">User ID: {{userId}}</span>
+    </p>
+</div>
+<app-shopping-window></app-shopping-window>
+<app-footer></app-footer>

@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-6 col-xl-5">
+        <div class="border border-danger my-2 rounded px-2 pb-1">
+          <div class="my-1">
+            <div class="form-control border-primary pt-3 mt-2">
+              <form [formGroup]="registerForm" class="formclass" (ngSubmit)="register()">
+                <!-- <form [formGroup]="registerForm" class="formclass" (ngSubmit)="registerAdmin()"> -->
+
+                <h3 class="mt-2 mb-3 text-center">
+                  Register an account
+                </h3>
+                <div class="text-black">
+                  <p class="text-end  text-center mb-4">
+                    Join Book E-Shopping today!
+                  </p>
+
+                  <div class="row mb-1">
+                    <div class="col">
+                      <label for="fname" class="form-label my-1">First Name*</label>
+                      <input class="form-control border-dark rounded" type="text" placeholder="John etc. (required)"
+                        [(ngModel)]="auth.fname" name="fname" formControlName="fname" />
+                      <div class="my-invalid-text">&nbsp;<span class="text-danger"
+                          *ngIf="fname && fname.invalid && fname.touched">*First name input field is
+                          invalid</span></div>
+                    </div>
+                    <div class="col">
+                      <label class="form-label">Last Name</label>
+                      <input class="form-control border-secondary rounded" type="text"
+                        placeholder="Last name (optional)" [(ngModel)]="auth.lname" name="lname" />
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label class="form-label my-1">Email Address*</label>
+                      <input class="form-control border-dark rounded" type="email"
+                        placeholder="john@example.com (required)" [(ngModel)]="auth.email" name="email"
+                        formControlName="email" />
+                      <div class="my-invalid-text">&nbsp;<span class="text-danger"
+                          *ngIf="email && email.invalid && email.touched">*Email input field is
+                          invalid</span></div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label class="form-label my-1">Contact Number*</label>
+                      <input class="form-control border-dark rounded" type="text" placeholder="987654321 (numbers only)"
+                        [(ngModel)]="auth.phone" name="phone" formControlName="phone" />
+                      <div class="my-invalid-text">&nbsp;<span class="text-danger"
+                          *ngIf="phone && phone.invalid && phone.touched">*Phone input field is
+                          invalid</span></div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label class="form-label my-1">Gender</label>
+                      <input class="form-control border-secondary rounded" type="text" placeholder="Gender (optional)"
+                        [(ngModel)]="auth.gender" name="gender" />
+                      <div class="my-invalid-text">&nbsp;</div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label class="form-label my-1">Date of Birth</label>
+                      <input class="form-control border-secondary rounded" type="date" placeholder=" (optional)"
+                        [(ngModel)]="auth.dob" name="dob" />
+                      <div class="my-invalid-text">&nbsp;</div>
+
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label class="form-label my-1">Password*</label>
+                      <input class="form-control border-dark  rounded" type="password" name="password"
+                        formControlName="password" />
+                      <div class="my-invalid-text">&nbsp;<span class="text-danger"
+                          *ngIf="password && password.invalid && password.touched">*Password input field is
+                          invalid</span></div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label class="form-label my-1">Confirm Password*</label>
+                      <input class="form-control border-dark  rounded" type="password" [(ngModel)]="auth.password"
+                        name="name" formControlName="confirmPassword" />
+                      <div class="my-invalid-text">&nbsp;<span class="text-danger" *ngIf="passwordMatchError">*Password
+                          does not match</span></div>
+                    </div>
+                  </div>
+
+                  <hr class="my-4 border border-primary" />
+
+                  <div class="row mb-2">
+                    <div class="col-6">
+                      <div class="d-grid">
+                        <button type="reset" class="btn btn-outline-danger py-2 rounded mb-3">
+                          Clear all
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="d-grid">
+                        <button [disabled]="registerForm.invalid" class="float-end btn btn-primary py-2 rounded mb-3">
+                          Register
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-center link-primary">
+                    <a routerLink="/login">
+                      Already have an account? Click here to sign in
+                    </a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

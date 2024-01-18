@@ -1,0 +1,20 @@
+<div class="container">
+  <app-game-control
+  (oneSecondEmitter)="onIntervalFired($event)"
+  > </app-game-control>
+  <hr />
+  <div class="row">
+    <div class="col-6">
+      <app-odd
+      *ngFor="let od of oddNumbers"
+      [getCount]="od"
+      ></app-odd>
+    </div>
+    <div class="col-6">
+      <app-even
+      *ngFor="let ev of evenNumbers"
+      [getCount]="ev"
+      ></app-even>
+    </div>
+  </div>
+</div>

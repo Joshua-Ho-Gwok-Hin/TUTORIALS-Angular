@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-lg-6 border p-3">
+            <h3 class="py-3">Create / Edit Book Details</h3>
+            <form (ngSubmit)="saveBook()">
+                <div class="row">
+                    <div class="col-9 mb-3">
+                        <label class="form-label">Book Title</label>
+                        <input type="text" class="form-control" autocomplete="off" name="title"
+                            [(ngModel)]="book.title" />
+                        <!-- <div *ngIf="validateTitle && validateTitle.touched" class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                    <div class="col-3 mb-3">
+                        <label class="form-label">Book Code</label>
+                        <input type="text" class="form-control" name="id" disabled="" [(ngModel)]="book.id">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" rows="2" autocomplete="off" name="description"
+                        [(ngModel)]="book.description"></textarea>
+                    <div class="form-text text-danger">This is a required field.</div>
+                </div>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label class="form-label">Author</label>
+                        <input type="text" class="form-control" autocomplete="off" name="author"
+                            [(ngModel)]="book.author" />
+                        <div class="form-text text-danger">This is a required field.</div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label">Co-Author</label>
+                        <input type="text" class="form-control" autocomplete="off" name="coAuthor"
+                            [(ngModel)]="book.coAuthor" />
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <label class="form-label">Qty (Sale)</label>
+                        <input type="number" class="form-control" autocomplete="off" name="qtyForSale"
+                            [(ngModel)]="book.qtyForSale" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class="form-label">Selling Price</label>
+                        <input type="number" class="form-control" autocomplete="off" name="sellingPrice"
+                            [(ngModel)]="book.sellingPrice" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class="form-label">Selling Discount</label>
+                        <input type="number" class="form-control" autocomplete="off" name="sellingDiscount"
+                            [(ngModel)]="book.sellingDiscount" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <label class="form-label">Qty (Rental)</label>
+                        <input type="number" class="form-control" autocomplete="off" name="qtyForRent"
+                            [(ngModel)]="book.qtyForRent" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class="form-label">Renting Price</label>
+                        <input type="number" class="form-control" autocomplete="off" name="rentingPrice"
+                            [(ngModel)]="book.rentingPrice" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class="form-label">Renting Discount</label>
+                        <input type="number" class="form-control" autocomplete="off" name="rentingDiscount"
+                            [(ngModel)]="book.rentingDiscount" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <label class="form-label">eBook Version</label>
+                        <!-- <select class="form-control" name="hasElectBookVersion" [(ngModel)]="book.hasElectBookVersion">
+                            <option [ngValue]="true">
+                                Yes
+                            </option>
+                            <option [ngValue]="false">
+                                No
+                            </option>
+                        </select> -->
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class="form-label">eBook Price</label>
+                        <input type="number" class="form-control" autocomplete="off" name="electBookPrice"
+                            [(ngModel)]="book.electBookPrice" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class="form-label">eBook Discount</label>
+                        <input type="number" class="form-control" autocomplete="off" name="electBookDiscount"
+                            [(ngModel)]="book.electBookDiscount" />
+                        <!-- <div class="form-text text-danger">This is a required field.</div> -->
+                    </div>
+                </div>
+
+                <button type="submit" class="w-100 btn btn-success mt-3 p-3">Save Book Details</button>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

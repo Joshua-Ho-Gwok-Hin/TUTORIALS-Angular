@@ -1,0 +1,79 @@
+<style>
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+</style>
+
+<header class="container-fluid bg-info">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient fixed-top"
+  >
+    <div class="container">
+      <img
+        src="../../../assets/book.png"
+        class="mx-2 mb-1"
+        width="30"
+        height="30"
+        alt="Book E-Shopping logo"
+      />
+      <a class="navbar-brand mb-1 link-light" routerLink="/dashboard">
+        Book E-Shopping
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 px-2">
+          <ng-container
+            *ngIf="
+              this.auth.isAuthenticated();
+              then Authenticated;
+              else notAuthenticated
+            "
+          ></ng-container>
+
+          <ng-template #Authenticated>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link">My Account</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link">Administration</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" (click)="logout()">Logout</a>
+            </li>
+          </ng-template>
+
+          <ng-template #notAuthenticated>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register">Register</a>
+            </li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<br />
+<br />
+<br />

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row my-4">
+    <h1>This is home page</h1>
+    <div class="col-md-6" *ngFor="let post of posts">
+      <h2>after let post of posts</h2>
+      <div
+        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 postion-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <img src="{{post.image}}" class="img-fluid" alt="Image" />
+          <h3 class="my-2">{{ post.title }}</h3>
+          <p class="card-text mb-auto">
+            {{ post.content.substring(0, 300)}}...
+          </p>
+          <a (click)="readMore(post)">continue Reading...</a>
+          <div class="container" *ngIf="isAdmin">
+            <div class="row my-2">
+              <button class="col-6 btn btn-primary" (click)="edit(post)">
+                Edit
+              </button>
+              <button class="col-6 btn btn-danger" (click)="delete(post)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

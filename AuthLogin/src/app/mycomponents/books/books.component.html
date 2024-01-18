@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row my-4">
+
+    <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 postion-relative">
+      <div class="col-3 col-md-2 col-lg-3 border text-center">
+        <img src="../../../assets/book.png" class="img-fluid py-3" alt="Image" />
+      </div>
+      <div class="col-9 col-md-10 col-lg-9 p-4 d-flex flex-column position-static">
+        <div class="row">
+          <span class="my-2 col"><span class="h4">{{ book.title }} </span>
+            <span class="fs-6 fw-normal"> ( Book Code:
+              {{book.id}} )</span></span>
+        </div>
+        <span><i>by {{book.author}} (Author)</i><span *ngIf="book.coAuthor"><i> & {{book.coAuthor}}
+              (Co-Author)</i></span></span>
+        <p class="card-text mb-auto mt-1">{{ book.description}}</p>
+      </div>
+    </div>
+
+    <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 postion-relative">
+      <!-- <div class="col- p-4 d-flex flex-column position-static"> -->
+
+      <div class="row pt-3">
+        <span class="btn btn-outline col-4">Selling Price: ${{book.sellingPrice}}</span>
+        <span class="btn btn-outline col-4"><del>Rental Price: ${{book.rentingPrice}}</del></span>
+        <span class="btn btn-outline col-4"><del>EBook Price: ${{book.electBookPrice}}</del></span>
+      </div>
+
+      <div class="row pb-3">
+        <span class="btn btn-outline col-4">Discount: ${{book.sellingDiscount}}</span>
+        <span class="btn btn-outline col-4 text-danger"><i>Feature coming soon.</i></span>
+        <span class="btn btn-outline col-4 text-danger"><i>Feature coming soon.</i></span>
+      </div>
+
+      <div class="border p-2 mb-3">
+        <p class="fw-bold p-3 pb-1">This book's categories:</p>
+        <div class="col-3 btn btn-outline-dark" *ngFor="let bc of book.bookCategories"
+          [class.selected]="bc === selectedCategoryBook" (click)="deleteCategoryFromBook(book.id, bc)">{{bc.name}}</div>
+      </div>
+
+
+      <div class="border p-2" *ngIf="isAdmin">
+        <button class="col-4 btn btn-outline-primary" (click)="edit(book)">
+          Edit Details
+        </button>
+        <button class="col-4 btn btn-outline-danger " (click)="delete(book)">
+          Delete
+        </button>
+        <button class="col-4 btn btn-outline-success">Add to cart</button>
+      </div>
+
+      <div *ngIf="isAdmin">
+        <div class="mt-3 border border-dark bg-outline-danger p-2">
+          <p class="fw-bold p-3 pb-1">Add categories to book:</p>
+
+          <!-- <div class="col-3 btn btn-outline-dark" *ngFor="let c of categories" 
+          [class.selected]="c === selectedCategory"
+          (click)="addCategoryToBook(book.id, c)">{{c.name}}</div> -->
+
+          <div class="col-3 btn btn-outline-dark" *ngFor="let c of categories.slice(0, 5)"
+            [class.selected]="c === selectedCategory" (click)="addCategoryToBook(book.id, c)">{{c.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,45 @@
+<hr />
+<br />
+
+<div>
+  <label for="bookCategory">Select a Category</label>
+
+  <select name="bookCategory">
+    <option>Choose category</option>
+    <option *ngFor="let eachCat of category">{{ eachCat.name }}</option>
+  </select>
+</div>
+<br><hr><br>
+
+<input [(ngModel)]="something" type="text" />
+<br />
+<input type="text" value="{{ something }}" />
+<br><br><hr><br>
+
+<table border="1px">
+  <tr>Books</tr>
+  <tr>
+    <th>No</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Stocks</th>
+    <th>Category</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <td></td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.stock }}</td>
+    <td>{{ book.category }}</td>
+  </tr>
+</table>
+<br><hr><br>
+
+<div *ngFor="let book2 of books">
+  <div [ngSwitch]="book2.category">
+    <div *ngSwitchCase="'Horror'">
+      {{ book2.title }}{{ book2.author }}{{ book2.stock }}{{ book2.category }}
+    </div>
+  </div>
+</div>
+<h2>{{ greatUser() }}</h2>
