@@ -1,0 +1,33 @@
+&lt;AppComponent&gt;
+
+<h1>{{title}}</h1>
+<nav>
+    <a class="button" 
+    routerLink="/dashboard"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">Dashboard</a>&nbsp;
+
+    <a class="button" 
+    routerLink="/heroes"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">Heroes</a>&nbsp;
+
+    <a class="button" 
+    routerLink="/form"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">Form</a>&nbsp;
+
+    <a class="button" 
+    routerLink="/crisis-center"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">Crisis</a>&nbsp;
+
+    <a class="button" 
+    routerLink="/hello-world"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">test</a>&nbsp;
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+&lt;/AppComponent&gt; <hr>
+
